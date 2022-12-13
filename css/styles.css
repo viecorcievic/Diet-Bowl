@@ -23,20 +23,112 @@
 
 body {
     background-color: #fff;
-    
-}
-header {
-    width: 100%;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
+    overflow-x: hidden;
 }
 
 .logo {
-    max-width: 100%;
-    width: 170px;
-    height: auto;
+    height: 6.5em; 
     mix-blend-mode: multiply;
+}
+
+nav {
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+    padding: 2em;
+    flex: auto;
+    align-items: center;
+    position: relative;
+}
+
+ul {
+    display: flex;
+    width: 55%;
+    justify-content: space-around;
+
+}
+a {
+    font-size: 1.5rem;
+    position: relative;
+    padding: .2em;
+    color: var(--second-color);
+    text-decoration: none;
+}
+
+a::after {
+    contain: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 55%;
+    background-color: var(--third-color);
+    height: .19em;
+    border-radius: 15px;
+    transition-delay: .3s ease-in-out;
+
+}
+
+a:hover::after {
+    width: 100%;
+}
+.burger {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+
+.line {
+    width: 3em;
+    height: .3em;
+    background: #73ae95;
+    margin: .7em;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+}
+
+@media only screen and (max-width: 1000px) {
+    .burger {
+        display: block;
+        transition: .3s ease-in-out;
+    }
+    .burger.active .line:first-child {
+        transform: translateY(-300px);
+    }
+    .burger.active .line:last-child {
+        transform: translateY(-300px);
+    }
+    .burger.active .line:nth-child(2) {
+        transform: rotate(-405deg);
+    }
+    
+    
+    ul {
+        position: relative;
+        right: 0;
+        top: 8vh;
+        background-color: #afc9b9;
+        height: 92vh;
+        flex-direction: column;
+        text-align: center;
+        transform: translate(200%);
+
+        
+    }
+    ul.active {
+        transform: translate(0%);
+        transition: .3s ease-in-out;
+    }
+    a {
+        color: whitesmoke;
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+}
+@media only screen and (max-width: 760px) {
+    ul {
+        width: 100%;
+    }
 }
